@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- Checkbox for multiple item selection -->
+    <CheckBox
+        android:id="@+id/cbSelectItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <!-- Item Image - Represents visual/ picture of item in case they look the same
+    or may have minor differences or somthing of that nature item -->
+    <ImageView
+        android:id="@+id/ivItemImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@+id/cbSelectItem"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Item Details Layout - Combines item name, UPC, DPCI, and TCIN -->
+    <LinearLayout
+        android:id="@+id/itemDetailsLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/ivItemImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvQuantity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="2">
+
+        <TextView
+            android:id="@+id/tvItemName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Item Name"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvUpcCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="UPC: 123456789"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvDpciCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DPCI: 123-45-6789"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvTcinCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TCIN: 987654321"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- Quantity Display - Shows current inventory count -->
+    <TextView
+        android:id="@+id/tvQuantity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Qty"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@+id/itemDetailsLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDelete"
+        app:layout_constraintHorizontal_weight="1" />
+
+    <!-- Delete Button - Allows th user to delete individual inventory items -->
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
